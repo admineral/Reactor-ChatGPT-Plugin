@@ -30,7 +30,7 @@ Unleash the power of Reactor with a simple JSON prompt. Describe the web applica
 
 ## ⚠️ Limitations
 
-Reactor is currently focused on web applications. But who knows what the future holds? Stay tuned for updates!
+Reactor is currently in development. But who knows what the future holds? Stay tuned for updates!
 
 ## 🙌 Contribute
 
