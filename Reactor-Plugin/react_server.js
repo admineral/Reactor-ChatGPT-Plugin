@@ -23,8 +23,10 @@ app.post('/get-screenshot', async (req, res) => {
     const page = await browser.newPage();
 
     console.log('Setting page content');
-    const babelResult = Babel.transform(currentCode + ';App', { presets: ['react'] });
+    const babelResult = Babel.transform(currentCode, { presets: ['react'] });
     const transpiledCode = babelResult.code;
+    const componentName = currentCode.split(/function |class /).pop().split('(')[0].trim();
+    
     const html = `
       <!DOCTYPE html>
       <html>
@@ -36,7 +38,7 @@ app.post('/get-screenshot', async (req, res) => {
           <div id="root"></div>
           <script>
             ${transpiledCode}
-            ReactDOM.render(React.createElement(App), document.getElementById('root'));
+            ReactDOM.render(React.createElement(${componentName}), document.getElementById('root'));
           </script>
         </body>
       </html>

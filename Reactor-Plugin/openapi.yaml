@@ -23,6 +23,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/generateCodeResponse'
+  /Reactor/{username}:
+    get:
+      operationId: getInitialCode
+      summary: Get the initial code for a specific user
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          required: true
+          description: Username of the user.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getCodeResponse'
+  /current-code/{username}:
+    get:
+      operationId: getCurrentCode
+      summary: Get the current code for a specific user
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          required: true
+          description: Username of the user.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getCodeResponse'
 
 components:
   schemas:
@@ -42,4 +78,9 @@ components:
           type: string
           description: The generated code.
           required: true
-
+    getCodeResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The returned code.
