@@ -1,0 +1,20 @@
+{
+  "name": "your-app-name",
+  "version": "1.0.0",
+  "description": "Description of your project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "cors": "^2.8.5",
+    "body-parser": "^1.19.0",
+    "puppeteer": "^10.4.0",
+    "@babel/standalone": "^7.15.4",
+    "path": "^0.12.7"
+  }
+}
