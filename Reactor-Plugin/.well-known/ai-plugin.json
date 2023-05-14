@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Reactor Plugin (no auth)",
+    "name_for_model": "Reactor",
+    "description_for_human": "Plugin to generate code for a Website",
+    "description_for_model": "Plugin for generating code for a webapp,it will respond with a link to a picture of the webapp and code for the website.",
+    "auth": {
+      "type": "none"
+    },
+    "api": {
+      "type": "openapi",
+      "url": "http://localhost:5003/openapi.yaml",
+      "is_user_authenticated": false
+    },
+    "logo_url": "http://localhost:5003/logo.png",
+    "contact_email": "legal@example.com",
+    "legal_info_url": "http://example.com/legal"
+  }
