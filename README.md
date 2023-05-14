@@ -1,4 +1,4 @@
-PROTOTYPE !!! v_0.0.1
+PROTOTYPE !!! v_0.0.2
 
 ---
 
@@ -36,10 +36,70 @@ Reactor is currently in development. But who knows what the future holds? Stay t
 
 Reactor is open to contributions! If you have ideas to make it even better, don't hesitate to fork the repository and submit a pull request.
 
-## 📜 License
 
-This project is licensed under the MIT License.
 
----
 
-Remember to replace the placeholder URL for the logo with the actual URL of your logo.
+
+
+
+## Project Overview
+
+This project is an application that uses React, Express, Puppeteer, and OpenAI's GPT-3 API to generate and screenshot code. It's designed to receive a user's desired feature or change for a React codebase and returns the updated code along with a screenshot of the rendered application.
+
+## Getting Started
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+- Node.js and npm: You can download these from [here](https://nodejs.org/en/download/).
+- Python: You can download it from [here](https://www.python.org/downloads/).
+- Pip: You can download it from [here](https://pip.pypa.io/en/stable/installation/).
+- Quart and quart-cors: Install them using pip.
+- OpenAI API Key: You can get it from [here](https://beta.openai.com/signup/).
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/admineral/Reactor-ChatGPT-Plugin.git
+```
+2. Install Node packages
+```bash
+npm install
+```
+3. Install Python packages
+```bash
+pip install -r requirements.txt
+```
+
+### Running the Application
+
+1. Start the Express server
+```bash
+node server.js
+```
+2. Start the Quart server
+```bash
+python main.py
+```
+
+Note: Make sure to add your OpenAI API key in the `main.py` file.
+
+
+## Acknowledgments
+
+- OpenAI for providing the GPT-3 API.
+- Node.js and Express for providing the backend framework.
+- Puppeteer for providing the headless browser functionality.
+
+# requirements.txt
+
+```txt
+quart
+quart-cors
+openai
+requests
+```
+
+
