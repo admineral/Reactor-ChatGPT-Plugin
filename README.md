@@ -8,15 +8,21 @@ Welcome to the future of web development! Reactor is a cutting-edge plugin for O
 
 ![Reactor GIF](images/Reactor.gif)
 
+
+
 ## 🎯 What is it?
 
 Reactor takes your ideas and turns them into reality. Simply describe the web application you want to create, and Reactor will generate the code for you. But that's not all! It also provides a screenshot of the resulting web application, giving you a sneak peek of your idea brought to life.
+
+
 
 ## 🌟 Features
 
 - **Code Generation**: Reactor isn't just any code generator. It's your personal web development assistant. From simple websites to complex web apps, Reactor has got you covered.
 
 - **Screenshot Generation**: A picture is worth a thousand words, and Reactor knows it. Along with the code, it gives you a visual representation of the generated web application.
+
+
 
 ## 🚀 How to Use
 
@@ -28,10 +34,14 @@ Unleash the power of Reactor with a simple JSON prompt. Describe the web applica
 
 ```
 
+
+
 ## ⚠️ Limitations
 
 Reactor is currently in development. But who knows what the future holds? Stay tuned for updates!
 If you do not already have plugin developer access, please [join the waitlist](https://openai.com/waitlist/plugins).
+
+
 
 ## 🙌 Contribute
 
@@ -43,13 +53,20 @@ Reactor is open to contributions! If you have ideas to make it even better, don'
 
 
 
+
+
+
 ## Project Overview
 
 This project is an application that uses React, Express, Puppeteer, and OpenAI's GPT-3 API to generate and screenshot code. It's designed to receive a user's desired feature or change for a React codebase and returns the updated code along with a screenshot of the rendered application.
 
+
+
 ## Getting Started
 
 To get a local copy up and running, follow these steps.
+
+
 
 ### Prerequisites
 
@@ -58,6 +75,9 @@ To get a local copy up and running, follow these steps.
 - Pip: You can download it from [here](https://pip.pypa.io/en/stable/installation/).
 - Quart and quart-cors: Install them using pip.
 - OpenAI API Key: You can get it from [here](https://beta.openai.com/signup/).
+
+
+
 
 ### Installation
 
@@ -74,6 +94,8 @@ npm install
 pip install -r requirements.txt
 ```
 
+
+
 ### Running the Application
 
 1. Start the Express server
@@ -88,11 +110,15 @@ python main.py
 Note: Make sure to add your OpenAI API key in the `main.py` file.
 
 
+
+
 ## Acknowledgments
 
 - OpenAI for providing the GPT-3 API.
 - Node.js and Express for providing the backend framework.
 - Puppeteer for providing the headless browser functionality.
+
+
 
 # requirements.txt
 
@@ -111,6 +137,8 @@ Once the local server is running:
 5. Enter in `localhost:5003` since this is the URL the server is running on locally, then select "Find manifest file".
 
 The plugin should now be installed and enabled! You can start with a question like "What is on my todo list" and then try adding something to it as well! 
+
+
 
 ## Getting help
 
