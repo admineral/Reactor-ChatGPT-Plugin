@@ -21,7 +21,7 @@ function LandingPage() {
 
   const containerStyle = {
     backgroundImage: 'linear-gradient(to right, #6a11cb, #2575fc)',
-    minHeight: 'calc(100vh - 200px)',
+    minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
