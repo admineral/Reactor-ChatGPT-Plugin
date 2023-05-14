@@ -24,7 +24,7 @@ Unleash the power of Reactor with a simple JSON prompt. Describe the web applica
 
 ```
 
-  Create a website for a coding school."
+  Create a website for a " ...  ".
 
 ```
 
