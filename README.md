@@ -1,4 +1,4 @@
-Sure, here's a cool README for the Reactor plugin:
+PROTOTYPE !!! v_0.0.1
 
 ---
 
@@ -6,7 +6,7 @@ Sure, here's a cool README for the Reactor plugin:
 
 Welcome to the future of web development! Reactor is a cutting-edge plugin for OpenAI's ChatGPT that's here to revolutionize the way you create web applications.
 
-![Reactor Logo](https://your-logo-url.com)
+![Reactor GIF](images/Reactor.gif)
 
 ## 🎯 What is it?
 
@@ -24,13 +24,13 @@ Unleash the power of Reactor with a simple JSON prompt. Describe the web applica
 
 ```
 
-  Create a website for a coding school."
+  Create a website for a " ...  ".
 
 ```
 
 ## ⚠️ Limitations
 
-Reactor is currently focused on web applications. But who knows what the future holds? Stay tuned for updates!
+Reactor is currently in development. But who knows what the future holds? Stay tuned for updates!
 
 ## 🙌 Contribute
 
