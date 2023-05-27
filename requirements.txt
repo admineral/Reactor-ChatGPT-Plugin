@@ -1,4 +1,3 @@
 quart==0.15.1
 quart-cors==0.2.1
-
 requests==2.25.1
