@@ -1,4 +1,4 @@
 quart==0.15.1
 quart-cors==0.2.1
-openai==0.27.0
+
 requests==2.25.1
