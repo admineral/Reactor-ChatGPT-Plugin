@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const Babel = require('@babel/standalone');
+const fs = require('fs'); // for writing the HTML to a file
 
 const app = express();
 app.use(cors());
@@ -13,26 +14,42 @@ app.use('/public', express.static(path.join(__dirname, 'public'))); // serving s
 app.post('/get-screenshot', async (req, res) => {
   console.log('Received POST request at /get-screenshot');
   const currentCode = req.body.code;
-  console.log(`Received code: ${currentCode}`);  // Log the received code
+  console.log(`Received code: ${currentCode}`); // Log the received code
+
   try {
     console.log('Launching Puppeteer');
     const browser = await puppeteer.launch({
-    headless: "new",args: ['--remote-debugging-port=9222']});
+      headless: true,
+      args: ['--remote-debugging-port=9222'],
+    }); // set headless to false for debugging
 
     console.log('Creating new page');
     const page = await browser.newPage();
 
+    // Output browser console messages
+    page.on('console', (msg) => console.log('Browser log:', msg.text()));
+
     console.log('Setting page content');
-    const babelResult = Babel.transform(currentCode, { presets: ['react'] });
+
+    const processedCode = currentCode.replace(
+      'import React, { useState } from \'react\';',
+      ''
+    ).replace(
+      'export default ',
+      ''
+    );
+
+    const babelResult = Babel.transform(processedCode, { presets: ['react'] });
     const transpiledCode = babelResult.code;
-    const componentName = currentCode.split(/function |class /).pop().split('(')[0].trim();
-    
+    const componentName = processedCode.split(/function |class /).pop().split('(')[0].trim();
+
     const html = `
       <!DOCTYPE html>
       <html>
         <head>
           <script src="https://unpkg.com/react/umd/react.development.js"></script>
           <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+
         </head>
         <body>
           <div id="root"></div>
@@ -44,27 +61,29 @@ app.post('/get-screenshot', async (req, res) => {
       </html>
     `;
 
+    fs.writeFileSync('output.html', html); // Write the HTML to a file
+
     await page.setContent(html);
     console.log('Waiting for rendering');
-    await page.waitForTimeout(3000);  // Wait for 3 seconds
+    await page.waitForTimeout(5000); // Wait for 5 seconds
     console.log('Taking screenshot');
-    const element = await page.$("#root");
-    const boundingBox = await element.boundingBox();  // Get the bounding box of the element
-    console.log(`Element bounding box: ${JSON.stringify(boundingBox)}`);  // Log the bounding box
-    await page.screenshot({path: 'public/screenshot.png'}); // Save screenshot in the public directory
-  
+    const element = await page.$('#root');
+    const boundingBox = await element.boundingBox(); // Get the bounding box of the element
+    console.log(`Element bounding box: ${JSON.stringify(boundingBox)}`); // Log the bounding box
+    await page.screenshot({ path: 'public/screenshot.png' }); // Save screenshot in the public directory
+
     console.log('Closing browser');
     await browser.close();
-    
+
     // Get the current timestamp
     const timestamp = Date.now();
-  
+
     const screenshotUrl = `http://localhost:5001/public/screenshot.png?${timestamp}`;
-    console.log(`Screenshot saved at ${screenshotUrl}`);  // Log the screenshot URL
+    console.log(`Screenshot saved at ${screenshotUrl}`); // Log the screenshot URL
     res.send(screenshotUrl); // Serve screenshot from the public directory
   } catch (e) {
-    console.error(`Error: ${e.message}`);  // Log the error message
-    res.send({error: e.message});
+    console.error(`Error: ${e.message}`); // Log the error message
+    res.send({ error: e.message });
   }
 });
 

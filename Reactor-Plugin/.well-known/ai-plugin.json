@@ -1,18 +1,19 @@
 {
-    "schema_version": "v1",
-    "name_for_human": "Reactor Plugin (no auth)",
-    "name_for_model": "Reactor",
-    "description_for_human": "Plugin to generate code for a Website",
-    "description_for_model": "Plugin for generating code for a webapp,it will respond with a link to a picture of the webapp and code for the website.",
-    "auth": {
-      "type": "none"
-    },
-    "api": {
-      "type": "openapi",
-      "url": "http://localhost:5003/openapi.yaml",
-      "is_user_authenticated": false
-    },
-    "logo_url": "http://localhost:5003/logo.png",
-    "contact_email": "legal@example.com",
-    "legal_info_url": "http://example.com/legal"
-  }
+  "schema_version": "v1",
+  "name_for_human": "React Code Renderer Plugin",
+  "name_for_model": "ReactRenderer",
+  "description_for_human": "A plugin that takes React code, renders it, and returns a screenshot.",
+  "description_for_model": "The ReactRenderer plugin accepts a single-line string of JavaScript code that defines a valid React component. This code should be a complete, self-contained component definition, including any necessary state or props, and the component's return statement. The code should not include import or export statements, as the plugin will handle the necessary React and ReactDOM imports. For example, you could provide a code that defines a landing page with a button that changes its text when clicked. After receiving the code, the plugin renders the component into a webpage, captures a screenshot of the rendered webpage, and provides this screenshot as output. This output is a URL to the screenshot, allowing you to see a visual representation of what the React component would look like when rendered in a web browser. To use the plugin, provide your React component code as a single-line string in the 'code' field of the input.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "http://localhost:5003/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "http://localhost:5003/logo.png",
+  "contact_email": "legal@example.com",
+  "legal_info_url": "http://example.com/legal"
+}
+

@@ -1,86 +1,41 @@
 openapi: 3.0.1
 info:
-  title: Code Generation Plugin
-  description: A plugin that allows the user to generate code using ChatGPT.
+  title: Reactor
+  description: A plugin that renders React code into a webpage and returns a screenshot.
   version: 'v1'
 servers:
   - url: http://localhost:5003
 paths:
-  /generate-code:
+  /render-code:
     post:
-      operationId: generateCode
-      summary: Generate code
+      operationId: renderCode
+      summary: Render code into a webpage and return a screenshot
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/generateCodeRequest'
+              $ref: '#/components/schemas/renderCodeRequest'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/generateCodeResponse'
-  /Reactor/{username}:
-    get:
-      operationId: getInitialCode
-      summary: Get the initial code for a specific user
-      parameters:
-        - in: path
-          name: username
-          schema:
-            type: string
-          required: true
-          description: Username of the user.
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/getCodeResponse'
-  /current-code/{username}:
-    get:
-      operationId: getCurrentCode
-      summary: Get the current code for a specific user
-      parameters:
-        - in: path
-          name: username
-          schema:
-            type: string
-          required: true
-          description: Username of the user.
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/getCodeResponse'
-
+                $ref: '#/components/schemas/renderCodeResponse'
 components:
   schemas:
-    generateCodeRequest:
+    renderCodeRequest:
       type: object
       required:
-      - prompt
-      properties:
-        prompt:
-          type: string
-          description: The prompt for the code generation.
-          required: true
-    generateCodeResponse:
-      type: object
+      - code
       properties:
         code:
           type: string
-          description: The generated code.
-          required: true
-    getCodeResponse:
+          description: The React code to render.
+    renderCodeResponse:
       type: object
       properties:
-        code:
+        screenshot_url:
           type: string
-          description: The returned code.
+          description: URL of the screenshot of the rendered code.
